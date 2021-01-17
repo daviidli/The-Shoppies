@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
+import { history } from './state/ducks/router';
+import store from './state/store';
+import Routes from './views/Routes';
 import reportWebVitals from './reportWebVitals';
+import './index.css';
+import 'react-circular-progressbar/dist/styles.css';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<Provider store={store}>
+			<ConnectedRouter history={history}>
+				<Routes />
+			</ConnectedRouter>
+		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root'),
 );
