@@ -1,5 +1,7 @@
 # The Shoppies
 
+[Try it!](https://dvdli.dev/The-Shoppies)
+
 This project was created for the Shopify Web Developer Intern Challenge (Summer 2021)
 
 [Challenge Specification](https://docs.google.com/document/d/1AZO0BZwn1Aogj4f3PDNe1mhq8pKsXZxtrG--EIbP_-w/edit?usp=sharing)
