@@ -2,17 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
+import { ToastContainer } from 'react-toastify';
 import { history } from './state/ducks/router';
 import store from './state/store';
 import Routes from './views/Routes';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import 'react-circular-progressbar/dist/styles.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<ConnectedRouter history={history}>
+				<ToastContainer />
 				<Routes />
 			</ConnectedRouter>
 		</Provider>

@@ -21,7 +21,12 @@ const formatResponse = ({
 const reducer = createReducer<MovieData[]>([], (builder) => builder
 	.addCase(
 		changePage.fulfilled,
-		(state, action) => action.payload.Search.map(formatResponse),
+		(state, action) => {
+			if (!action.payload.error) {
+				return action.payload.Search.map(formatResponse);
+			}
+			return [];
+		},
 	));
 
 export default reducer;

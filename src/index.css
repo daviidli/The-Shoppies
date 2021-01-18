@@ -12,6 +12,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
+	background-color: #343434;
 }
 
 code {
@@ -27,8 +28,4 @@ code {
 	.flex-basis-2 {
 		flex-basis: 45%;
 	}
-}
-
-.btn-outline-none {
-	outline: none;
 }

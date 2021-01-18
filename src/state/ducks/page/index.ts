@@ -12,13 +12,13 @@ export interface SearchTermPage {
 	page: number;
 }
 
-const CHANGE_PAGE = 'app/page/CHANGE_PAGE';
+export const CHANGE_PAGE = 'app/page/CHANGE_PAGE';
 
 export const changePage = createAsyncThunk<any, SearchTermPage>(
 	CHANGE_PAGE,
 	async (termPage: SearchTermPage) => {
 		const response = await fetchData(termPage.term, termPage.page);
-		return response.data;
+		return { error: response.data.Response === 'False', ...response.data };
 	},
 );
 

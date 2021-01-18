@@ -12,22 +12,27 @@ const SearchBar = ({ className, onSubmit, placeholder }: SearchBarProps) => {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setSearchTerm(e.target.value);
+		const { value } = e.target;
+		setSearchTerm(value);
+		if (value !== '') {
+			onSubmit(value);
+		}
 	};
 
 	const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-		if (e.key === 'Enter') {
-			onSubmit(searchTerm);
-		} else if (e.key === 'Escape') {
+		if (e.key === 'Escape') {
 			setSearchTerm('');
 		}
 	};
 
 	return (
 		<div className="relative">
-			<GoSearch className="absolute w-5 h-5 inset-4" />
+			<GoSearch className="absolute w-5 h-5 text-white inset-4" />
 			<input
-				className={clsx(className, 'bg-gray-200 p-3 pl-12 rounded-3xl h-14 w-full outline-none focus:ring-2 focus:ring-blue-600')}
+				className={clsx(
+					className,
+					'text-white p-3 bg-trueGray-700 pl-12 rounded-3xl h-14 w-full outline-none focus:ring-2 focus:ring-blue-600',
+				)}
 				value={searchTerm}
 				onChange={onChange}
 				onKeyDown={onKeyDown}
